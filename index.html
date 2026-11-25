@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07080c">
+  <meta name="description"
+    content="Highway Havoc: Wrong Way is coming soon. Get ready to race against traffic, unleash nitro and survive the highway.">
+  <title>Highway Havoc: Wrong Way — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07080c;
+      --panel: #10131b;
+      --red: #ff3038;
+      --yellow: #ffd21c;
+      --white: #f8f8fb;
+      --muted: #a6aab5
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Inter, Arial, sans-serif;
+      overflow-x: hidden
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(ellipse at 78% 30%, #1b263d55, transparent 45%), linear-gradient(130deg, #090a0e, #08090d 60%, #14090d)
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .wrap {
+      width: min(1200px, 92%);
+      margin: auto
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 5;
+      border-bottom: 1px solid #ffffff18;
+      background: #08090c65;
+      backdrop-filter: blur(14px)
+    }
+
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px
+    }
+
+    .logo {
+      font: 900 25px/.8 "Barlow Condensed", sans-serif;
+      letter-spacing: 1.5px
+    }
+
+    .logo span {
+      display: block;
+      color: var(--yellow);
+      font-size: 12px;
+      letter-spacing: 5px;
+      margin-top: 8px
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 28px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-weight: 800;
+      color: #d1d3da
+    }
+
+    .navlinks a:hover {
+      color: var(--yellow)
+    }
+
+    .pill {
+      border: 1px solid #ffd21c77;
+      color: var(--yellow);
+      padding: 10px 15px;
+      border-radius: 30px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase
+    }
+
+    .hero {
+      min-height: 850px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 120px 0 90px
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: linear-gradient(90deg, #07080cf5 0%, #07080cdd 38%, #07080c55 68%, #07080c55 100%), url("assets/highway-havoc-cover.jpg") center 42%/cover no-repeat;
+      transform: scale(1.04);
+      animation: heroReveal 1.2s ease-out both
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(0deg, var(--bg), transparent 26%, transparent 75%, #07080c88)
+    }
+
+    @keyframes heroReveal {
+      from {
+        transform: scale(1.12);
+        filter: brightness(.5)
+      }
+
+      to {
+        transform: scale(1.04);
+        filter: brightness(1)
+      }
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      position: relative;
+      z-index: 1
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .eyebrow:before {
+      content: "";
+      width: 35px;
+      height: 2px;
+      background: var(--red)
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Barlow Condensed", Impact, sans-serif;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: .9
+    }
+
+    h1 {
+      font-size: clamp(76px, 12vw, 150px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      margin: 25px 0 18px;
+      text-shadow: 0 7px 35px #000
+    }
+
+    h1 span {
+      display: block;
+      color: var(--yellow);
+      text-shadow: 4px 5px 0 #9d2419, 0 0 45px #ffb00033
+    }
+
+    .stamp {
+      display: inline-block;
+      background: var(--red);
+      padding: 10px 18px;
+      transform: skew(-10deg);
+      font: 900 clamp(24px, 4vw, 40px)/1 "Barlow Condensed";
+      letter-spacing: 3px;
+      box-shadow: 8px 8px 0 #6c1016
+    }
+
+    .hero-copy>p {
+      max-width: 510px;
+      color: #d0d2da;
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 30px 0
+    }
+
+    .launch {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px
+    }
+
+    .pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ff383f;
+      box-shadow: 0 0 0 0 #ff383f88;
+      animation: pulse 1.7s infinite
+    }
+
+    @keyframes pulse {
+      70% {
+        box-shadow: 0 0 0 12px #ff383f00
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 #ff383f00
+      }
+    }
+
+    .launch strong {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase
+    }
+
+    .launch small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 5px
+    }
+
+    .hero-bottom {
+      position: absolute;
+      bottom: 38px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      color: #ffffff9c;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase
+    }
+
+    .scroll {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .scroll:before {
+      content: "";
+      height: 36px;
+      width: 1px;
+      background: var(--yellow)
+    }
+
+    .section {
+      padding: 100px 0
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px
+    }
+
+    .section-head .eyebrow {
+      justify-content: center
+    }
+
+    .section-head .eyebrow:before {
+      display: none
+    }
+
+    h2 {
+      font-size: clamp(48px, 7vw, 82px);
+      margin: 17px 0
+    }
+
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .feature {
+      position: relative;
+      padding: 30px 27px 32px;
+      min-height: 220px;
+      background: linear-gradient(145deg, #171b26, #0e1016);
+      border: 1px solid #ffffff14;
+      border-radius: 9px;
+      overflow: hidden;
+      transition: .3s
+    }
+
+    .feature:hover {
+      transform: translateY(-7px);
+      border-color: #ffd21c66
+    }
+
+    .feature:after {
+      content: attr(data-num);
+      position: absolute;
+      right: 15px;
+      bottom: -28px;
+      font: 900 110px "Barlow Condensed";
+      color: #ffffff08
+    }
+
+    .feature .number {
+      color: var(--red);
+      font: 800 13px "Barlow Condensed";
+      letter-spacing: 3px
+    }
+
+    .feature h3 {
+      font-size: 32px;
+      margin: 22px 0 12px
+    }
+
+    .feature p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 300px
+    }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center
+    }
+
+    .cover {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid #ffffff2a;
+      box-shadow: 0 30px 90px #0009;
+      transform: rotate(-1deg)
+    }
+
+    .cover img {
+      display: block;
+      width: 100%
+    }
+
+    .cover:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 8px solid #ffd21c22;
+      border-radius: 15px;
+      pointer-events: none
+    }
+
+    .showcase-copy h2 {
+      font-size: clamp(48px, 6vw, 76px)
+    }
+
+    .showcase-copy p {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px
+    }
+
+    .tags {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 25px
+    }
+
+    .tags span {
+      border: 1px solid #ffffff24;
+      padding: 9px 12px;
+      border-radius: 4px;
+      color: #d7d8df;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase
+    }
+
+    .final-cta {
+      padding: 55px 30px;
+      text-align: center;
+      border: 1px solid #ffffff18;
+      border-radius: 14px;
+      background: radial-gradient(ellipse at 50% 0%, #ff30382a, transparent 65%), linear-gradient(145deg, #151821, #0d0f15)
+    }
+
+    .final-cta h2 {
+      font-size: clamp(45px, 7vw, 78px)
+    }
+
+    .final-cta p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8
+    }
+
+    footer {
+      border-top: 1px solid #ffffff18;
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 11px
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .footlinks {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap
+    }
+
+    .footlinks a:hover {
+      color: var(--yellow)
+    }
+
+    @media(max-width:760px) {
+      .nav {
+        height: 70px
+      }
+
+      .navlinks {
+        display: none
+      }
+
+      .hero {
+        min-height: 780px;
+        align-items: center
+      }
+
+      .hero:before {
+        background: linear-gradient(90deg, #07080ceF, #07080c9c 75%, #07080c88), url("assets/highway-havoc-cover.jpg") 58% center/cover no-repeat
+      }
+
+      .hero-copy {
+        padding-top: 20px
+      }
+
+      .hero-bottom {
+        font-size: 8px
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr
+      }
+
+      .showcase {
+        grid-template-columns: 1fr;
+        gap: 38px
+      }
+
+      .section {
+        padding: 72px 0
+      }
+
+      .cover {
+        max-width: 560px;
+        margin: auto
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      *,
+      *:before,
+      *:after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition: none !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="index.html">HIGHWAY HAVOC<span>WRONG WAY</span></a>
+      <nav class="navlinks"><a href="#experience">Experience</a><a href="#features">Features</a><a
+          href="privacy-policy.html">Privacy</a><a href="ads.txt">ads.txt</a></nav>
+      <a class="pill" href="#coming">In development</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="coming">
+      <div class="wrap">
+        <div class="hero-copy">
+          <div class="eyebrow">The highway is calling</div>
+          <h1>HIGHWAY<span>HAVOC</span></h1>
+          <div class="stamp">WRONG WAY</div>
+          <p>Traffic coming at you. Nitro at your fingertips. One wrong move and it's game over. Get ready to challenge
+            the highway.</p>
+          <div class="launch"><i class="pulse"></i>
+            <div><strong>Coming soon</strong><small>A new driving challenge is on the way.</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="wrap hero-bottom"><span>Developed by Krishna Ajaysing Patil</span><span class="scroll">Scroll to
+          explore</span></div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">This is not a normal drive</div>
+          <h2>Wrong lane. Full throttle.</h2>
+          <p>Keep your focus, find the opening and survive for one more second. The road never gives you a break.</p>
+        </div>
+        <div class="feature-grid" id="features">
+          <article class="feature" data-num="01">
+            <div class="number">01 / REACT</div>
+            <h3>DODGE THE TRAFFIC</h3>
+            <p>Read the road and make split-second moves to avoid oncoming vehicles.</p>
+          </article>
+          <article class="feature" data-num="02">
+            <div class="number">02 / UNLEASH</div>
+            <h3>FIRE UP NITRO</h3>
+            <p>Time your boost, burst forward and make every run count.</p>
+          </article>
+          <article class="feature" data-num="03">
+            <div class="number">03 / SURVIVE</div>
+            <h3>BEAT YOUR LIMIT</h3>
+            <p>Collect rewards, chase milestones and push your driving skills further.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap showcase">
+        <div class="cover"><img src="assets/highway-havoc-cover.jpg"
+            alt="Highway Havoc: Wrong Way official game artwork"></div>
+        <div class="showcase-copy">
+          <div class="eyebrow">Your next obsession</div>
+          <h2>THE ROAD HAS NO MERCY.</h2>
+          <p>Highway Havoc: Wrong Way is an upcoming highway survival driving game. Stay sharp, avoid crashes and see
+            how far you can go.</p>
+          <div class="tags"><span>High-speed action</span><span>Traffic dodging</span><span>Nitro
+              boost</span><span>Coming soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="final-cta">
+          <div class="eyebrow" style="justify-content:center">Stay tuned</div>
+          <h2>THE COUNTDOWN<br>STARTS WITH YOU.</h2>
+          <p>Follow the official game website for launch information and updates.</p><a class="pill"
+            href="privacy-policy.html">Read privacy policy&nbsp; ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap foot">
+      <div>© <span id="year"></span> Krishna Patil Rajput · Highway Havoc: Wrong Way</div>
+      <div class="footlinks"><a href="privacy-policy.html">Privacy Policy</a><a href="ads.txt">ads.txt</a><a
+          href="mailto:REPLACE_WITH_SUPPORT_EMAIL">Contact</a></div>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
