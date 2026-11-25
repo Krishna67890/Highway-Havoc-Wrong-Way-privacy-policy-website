@@ -1,3 +1,2 @@
-# Add your authorized advertising seller records here when provided by your ad network.
-# Example format (do not publish this example as a real seller record):
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-1889923922299467, DIRECT, f08c47fec0942fa0
+
