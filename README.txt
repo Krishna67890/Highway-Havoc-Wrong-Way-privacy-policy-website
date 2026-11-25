@@ -7,10 +7,10 @@ Files:
 - assets/highway-havoc-cover.jpg: game artwork
 
 Before publishing:
-1. Replace REPLACE_WITH_SUPPORT_EMAIL in index.html and privacy-policy.html.
+1. Replace krishna.coders12@gmail.com in index.html and privacy-policy.html.
 2. Verify privacy statements against the actual SDKs, permissions and data handling in the game.
 3. Keep ads.txt in the website root. Add only the exact seller record supplied by your ad network.
-4. Upload all files and the assets folder together to your host.
+4. Upload all files and the assets folder together to  host.
 
 Expected routes:
 /
