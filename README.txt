@@ -2,7 +2,7 @@ HIGHWAY HAVOC: WRONG WAY — COMING SOON WEBSITE
 
 Files:
 - index.html: animated, responsive Coming Soon landing page
-- privacy-policy.html: privacy policy draft (verify against the final app build)
+- privacy-policy.html: privacy policy draft
 - ads.txt: root-level placeholder for future authorized seller records
 - assets/highway-havoc-cover.jpg: game artwork
 
